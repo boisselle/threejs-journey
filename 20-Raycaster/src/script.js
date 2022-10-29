@@ -95,6 +95,7 @@ window.addEventListener("click", () => {
     }
   }
 });
+
 /**
  * Camera
  */

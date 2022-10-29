@@ -29,7 +29,7 @@ loadingManager.onError = () => {
 };
 
 const textureLoader = new THREE.TextureLoader(loadingManager);
-const colorTexture = textureLoader.load("/textures/minecraft.png");
+const colorTexture = textureLoader.load("/textures/mid2.png");
 const alphaTexture = textureLoader.load("/textures/door/alpha.jpg");
 const heightTexture = textureLoader.load("/textures/door/height.jpg");
 const normalTexture = textureLoader.load("/textures/door/normal.jpg");
@@ -51,9 +51,10 @@ const roughnessTexture = textureLoader.load("/textures/door/roughness.jpg");
 // colorTexture.center.x = 0.5;
 // colorTexture.center.y = 0.5;
 
-// colorTexture.minFilter = THREE.NearestFilter;
+colorTexture.generateMipmaps = false;
+colorTexture.minFilter = THREE.NearestFilter;
 colorTexture.magFilter = THREE.NearestFilter;
-/**
+/**`
  * Base
  */
 // Canvas
@@ -65,7 +66,8 @@ const scene = new THREE.Scene();
 /**
  * Object
  */
-const geometry = new THREE.BoxGeometry(1, 1, 1);
+// const geometry = new THREE.BoxGeometry(1, 1, 1);
+const geometry = new THREE.PlaneGeometry();
 const material = new THREE.MeshBasicMaterial({ map: colorTexture });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);

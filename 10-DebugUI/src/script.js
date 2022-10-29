@@ -6,7 +6,7 @@ import * as dat from "lil-gui";
 
 console.log(dat);
 /* DEBUG */
-const gui = new dat.GUI();
+const gui = new dat.GUI({closed: true, width: 400});
 
 const parameters = {
   color: 0xff0000,

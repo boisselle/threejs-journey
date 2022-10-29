@@ -1,6 +1,7 @@
 import "./style.css";
 import * as THREE from "three";
 import { Clock } from "three";
+import gsap from "gsap";
 
 // Scene
 const scene = new THREE.Scene();
@@ -30,7 +31,8 @@ renderer.setSize(sizes.width, sizes.height);
 // renderer.render(scene, camera);
 
 // Click
-const clock = new THREE.Clock();
+// const clock = new THREE.Clock();
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
 
 // Animations
 const tick = () => {
@@ -43,10 +45,10 @@ const tick = () => {
   //Rotate once per second
   // mesh.rotation.y += elapsedTime * Math.PI * 2;
 
-  //
-  mesh.position.y = Math.sin(elapsedTime);
-  mesh.position.x = Math.cos(elapsedTime);
-  mesh.position.z = Math.sin(elapsedTime);
+  //animate spiral
+  // mesh.position.y = Math.sin(elapsedTime);
+  // mesh.position.x = Math.cos(elapsedTime);
+  // mesh.position.z = Math.sin(elapsedTime);
 
   // Render
   renderer.render(scene, camera);
